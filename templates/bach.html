@@ -1,0 +1,133 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Apollo</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{{ url_for('static',filename='assets/css/main.css') }}" />
+		<noscript><link rel="stylesheet" href="{{ url_for('static',filename='assets/css/noscript.css') }}" /></noscript>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script type=text/javascript>
+    		$(function() {
+      			$('a#test').bind('click', function() {
+        			$.getJSON('/background_process_test',
+            			function(data) {
+          				//do nothing
+        			});
+        			return false;
+      			});
+    		});
+		</script>
+		<script src="https://cdn.jsdelivr.net/combine/npm/tone@14.7.58,npm/@magenta/music@1.21.0/es6/core.js,npm/focus-visible@5,npm/html-midi-player@1.1.0"></script>
+	</head>
+	<body class="is-preload">
+
+		<!-- Page Wrapper -->
+			<div id="page-wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1><a href="/home">Apollo</a></h1>
+						<nav>
+							<a href="#menu">Menu</a>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<div class="inner">
+							<h2>Menu</h2>
+							<ul class="links">
+								<li><a href="/home">Home</a></li>
+								<li><a href="/beethoven">Beethoven</a></li>
+								<li><a href="/bach">Bach</a></li>
+								<li><a href="/mozart">Mozart</a></li>
+								<li><a href="/chopin">Chopin</a></li>
+								<li><a href="/logout">Logout</a></li>
+							</ul>
+							<a href="#" class="close">Close</a>
+						</div>
+					</nav>
+
+				<!-- Wrapper -->
+					<section id="wrapper">
+						<header>
+							<div class="inner">
+								<h2>Johann Sebastian Bach</h2>
+								<p>Music sensed by touch.</p>
+							</div>
+						</header>
+
+						<!-- Content -->
+							<div class="wrapper">
+								<div class="inner">
+
+									
+
+									<h3 class="major">Generate Tunes</h3>
+									<p>Press the button to generate tunes similar to Bach's Compositions.</p>
+									<div class="wrapper2">
+										<a href="/loading_bach"><button name="forwardBtn" type="submit" class="button primary">Generate tune</button></a>
+									</div>
+									
+
+									<section class="features">
+										<article>
+											
+											<div class="wrapper2" >
+												<h3 class="major">Unique Tune</h3>
+											</div>											
+											<p>The generated music composition is unique yet similar to Bach's compositions.</p>
+											<div class="audio-player" align="center">
+												<midi-player src="static/music/test_output.mid" sound-font style = "width: 100%;" sound-font visualizer="#myVisualizer">
+												</midi-player>
+											</div>												
+										</article>
+									</section>
+
+									<div class="wrapper2">
+										<a href="static/music/test_output.mid" download="static/music/test_output.mid"><button name="forwardBtn" type="submit" class="button primary">Download it</button></a>
+									</div>
+
+								</div>
+							</div>
+
+					</section>
+
+				<!-- Footer -->
+					<section id="wrapper">
+						
+					</section>
+
+
+
+				<section id="footer">
+					
+
+						<!-- Content -->
+							<div class="wrapper">
+								<div class="inner">
+
+									<div class="inner">
+							<h2 class="major">Want to know how the AI works?</h2>
+							<p>This project was created by Darryl Fernandes, Vishal Dube and Myron Dsouza as a capstone project for Bachelors in Computer Engineering. The source code for this project can be found on <a href="https://github.com/droid2299">this GitHub page.</a></p>
+							<ul class="copyright">
+								<li>&copy; Darryl Fernandes, Vishal Dube and Myron Dsouza</li>
+							</ul>
+						</div>
+
+									
+					</section>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="{{ url_for('static',filename='assets/js/jquery.min.js') }}"></script>
+			<script src="{{ url_for('static',filename='assets/js/jquery.scrollex.min.js') }}"></script>
+			<script src="{{ url_for('static',filename='assets/js/browser.min.js') }}"></script>
+			<script src="{{ url_for('static',filename='assets/js/breakpoints.min.js') }}"></script>
+			<script src="{{ url_for('static',filename='assets/js/util.js') }}"></script>
+			<script src="{{ url_for('static',filename='assets/js/main.js') }}"></script>
+
+	</body>
+</html>
