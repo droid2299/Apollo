@@ -9,6 +9,7 @@
 <body>
 <!-- partial:index.partial.html -->
 <h2>Apollo. Generate Music using AI</h2>
+
 <div class="container" id="container">
 	<div class="form-container sign-up-container">
 		<form action="/signUp" method="post">
@@ -37,6 +38,7 @@
 				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
 			</div>
 			<span>or use your account</span>
+			<p style="color: red;">{{ logInFailed }}</p>
 			<input type="email" name="email" placeholder="Email" required />
 			<input type="password" name = "password" placeholder="Password" required />
 			<a href="#">Forgot your password?</a>

@@ -67,7 +67,7 @@
 									<h3 class="major">Generate Tunes</h3>
 									<p>Press the button to generate tunes similar to Mozart's Compositions.</p>
 									<div class="wrapper2">
-										<a href="/loading_mozart"><button name="forwardBtn" type="submit" class="button primary">Generate tune</button></a>
+										<a href="/loading_mozart"><button name="forwardBtn" type="submit" class="button primary">Generate tune <i class="fa fa-music"></i></button></a>
 									</div>
 									
 
@@ -86,7 +86,7 @@
 									</section>
 
 									<div class="wrapper2">
-										<a href="static/music/test_output.mid" download="static/music/test_output.mid"><button name="forwardBtn" type="submit" class="button primary">Download it</button></a>
+										<a href="static/music/test_output.mid" download="static/music/test_output.mid"><button name="forwardBtn" type="submit" class="button primary">Download it <i class="fa fa-download"></i></button></a> <a href="static/music/test_output.mid" download="static/music/test_output.mid"><button name="forwardBtn" type="submit" class="button primary">Add to Playlist <i class="fa fa-podcast"></i></button></a>
 									</div>
 
 								</div>
@@ -95,7 +95,71 @@
 					</section>
 
 				<!-- Footer -->
-					<section id="wrapper">
+					<section id="wrapper2">
+						<h2 class="major" style="text-align: center;">Some Curated Samples</h2>
+						<table>
+							<tr>
+    							<th style="	text-align: center;	">Track No.</th>
+    							<th style="	text-align: center;	">Track</th>
+    							<th style="	text-align: center;	">User</th>
+    							<th style="	text-align: center;	">Download</th>
+  							</tr>
+  							<tr>
+								<td style="	text-align: center;	">1</td>
+    							<td style="	text-align: center;	">
+    								<midi-player src="static/music/test_output.mid" sound-font style = "width: 100%;" sound-font visualizer="#myVisualizer">
+									</midi-player>
+								</td>
+							    <td style="	text-align: center;	">{{ user1 }}</td>
+							    <td style="	text-align: center;	">
+							    	<a href="static/music/test_output.mid" download="static/music/test_output.mid"><button name="forwardBtn" type="submit" class="button primary"><i class="fa fa-download"></i></button> <a href="static/music/test_output.mid" download="static/music/test_output.mid"><button name="forwardBtn" type="submit" class="button primary"><i class="fa fa-podcast"></i></button>
+							    </td>
+							</tr>
+							<tr>
+							    <td style="	text-align: center;	">2</td>
+							    <td style="	text-align: center;	">
+							    	<midi-player src="static/music/test_output.mid" sound-font style = "width: 100%;" sound-font visualizer="#myVisualizer">
+									</midi-player>
+							    </td style="	text-align: center;	">
+							    <td style="	text-align: center;	">{{ user2 }}</td>
+							    <td style="	text-align: center;	">
+							    	<a href="static/music/test_output.mid" download="static/music/test_output.mid"><button name="forwardBtn" type="submit" class="button primary"><i class="fa fa-download"></i></button> <a href="static/music/test_output.mid" download="static/music/test_output.mid"><button name="forwardBtn" type="submit" class="button primary"><i class="fa fa-podcast"></i></button>
+							    </td>
+							</tr>
+							<tr>
+							    <td style="	text-align: center;	">3</td>
+							    <td style="	text-align: center;	">
+							    	<midi-player src="static/music/test_output.mid" sound-font style = "width: 100%;" sound-font visualizer="#myVisualizer">
+									</midi-player>
+							    </td>
+							    <td style="	text-align: center;	">{{ user3 }}</td>
+							    <td style="	text-align: center;	">
+							    	<a href="static/music/test_output.mid" download="static/music/test_output.mid"><button name="forwardBtn" type="submit" class="button primary"><i class="fa fa-download"></i></button> <a href="static/music/test_output.mid" download="static/music/test_output.mid"><button name="forwardBtn" type="submit" class="button primary"><i class="fa fa-podcast"></i></button>
+							    </td>
+							</tr>
+							<tr>
+							    <td style="	text-align: center;	">4</td>
+							    <td style="	text-align: center;	">
+							    	<midi-player src="static/music/test_output.mid" sound-font style = "width: 100%;" sound-font visualizer="#myVisualizer">
+									</midi-player>
+							    </td>
+							    <td style="	text-align: center;	">{{ user4 }}</td>
+							    <td style="	text-align: center;	">
+							    	<a href="static/music/test_output.mid" download="static/music/test_output.mid"><button name="forwardBtn" type="submit" class="button primary"><i class="fa fa-download"></i></button> <a href="static/music/test_output.mid" download="static/music/test_output.mid"><button name="forwardBtn" type="submit" class="button primary"><i class="fa fa-podcast"></i></button>
+							    </td>
+							</tr>
+							<tr>
+							    <td style="	text-align: center;	">5</td>
+							    <td style="	text-align: center;	">
+							    	<midi-player src="static/music/test_output.mid" sound-font style = "width: 100%;" sound-font visualizer="#myVisualizer">
+									</midi-player>
+							    </td>
+							    <td style="	text-align: center;	">{{ user5 }}</td>
+							    <td style="	text-align: center;	">
+							    	<a href="static/music/test_output.mid" download="static/music/test_output.mid"><button name="forwardBtn" type="submit" class="button primary"><i class="fa fa-download"></i></button> <a href="static/music/test_output.mid" download="static/music/test_output.mid"><button name="forwardBtn" type="submit" class="button primary"><i class="fa fa-podcast"></i></button>
+							    </td>
+							</tr>
+						</table>
 						
 					</section>
 

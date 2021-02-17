@@ -11,7 +11,9 @@
 	
 	text-align: center;
 }
-
+th , td{
+  	text-align: center;
+}
 .overlay {
   position: fixed;
   top: 0;

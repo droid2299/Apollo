@@ -43,6 +43,12 @@ def generate(artist_number):
     elif(artist_number == 3):
         notes_path = 'data/notes_chopin'
 
+    elif(artist_number == 4):
+        notes_path = 'data/notes_happy'
+
+    elif(artist_number == 5):
+        notes_path = 'data/notes_sad'
+
     with open(notes_path , 'rb') as filepath:
         notes = pickle.load(filepath)
 
@@ -110,6 +116,12 @@ def create_network(network_input, n_vocab , artist_number):
 
     elif(artist_number == 3):
         weight_path = 'weights/Chopin-weights.hdf5'
+
+    elif(artist_number == 4):
+        weight_path = 'weights/Happy-weights.hdf5'
+
+    elif(artist_number == 5):
+        weight_path = 'weights/Sad-weights.hdf5'
 
     # Load the weights to each node
     model.load_weights(weight_path)
@@ -194,16 +206,22 @@ def create_midi(prediction_output , artist_number):
     random_str = random_string()
 
     if(artist_number == 0):
-        file_name = 'Beethoven_music/beethoven_test_output' + random_str + '.mid'
+        file_name = 'Beethoven_music/beethoven_test_output_' + random_str + '.mid'
 
     elif(artist_number == 1):
-        file_name = 'Bach_music/bach_test_output' + random_str + '.mid'
+        file_name = 'Bach_music/bach_test_output_' + random_str + '.mid'
 
     elif(artist_number == 2):
-        file_name = 'Mozart_music/mozart_test_output' + random_str + '.mid'
+        file_name = 'Mozart_music/mozart_test_output_' + random_str + '.mid'
 
     elif(artist_number == 3):
-        file_name = 'Chopin_music/chopin_test_output' + random_str + '.mid'
+        file_name = 'Chopin_music/chopin_test_output_' + random_str + '.mid'
+
+    elif(artist_number == 4):
+        file_name = 'Happy_music/happy_test_output_' + random_str + '.mid'
+
+    elif(artist_number == 5):
+        file_name = 'Sad_music/sad_test_output_' + random_str + '.mid'
 
     
     midi_stream.write('midi', fp='static/music/test_output.mid')

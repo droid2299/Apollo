@@ -46,13 +46,14 @@ def check():
 		if passwordReturned[0] == hashedPassword:
 			session['email'] = emailReturned
 			print(session)
-			return render_template("home.html")
+			#return render_template("home.html")
+			return login()
 
 		else:
-			return  "failed"
+			return  render_template("index.html" , logInFailed = "*Password doesn't match")
 		
 	else:
-		return "failed"
+		return render_template("index.html" , logInFailed = "Email doesn't match")
 
 	
 
@@ -63,7 +64,7 @@ def beethoven():
 	cursor.execute('SELECT * FROM songs WHERE artistID = 1 ORDER BY RAND() LIMIT 5')
 	rowsReturned = cursor.fetchall()
 	print(rowsReturned)
-	return render_template('beethoven.html')
+	return render_template('beethoven.html' , user1 = rowsReturned[0][2] , user2 = rowsReturned[1][2] , user3 = rowsReturned[2][2] , user4 = rowsReturned[3][2], user5 = rowsReturned[4][2])
 
 @app.route('/bach')
 def bach():
@@ -71,7 +72,7 @@ def bach():
 	cursor.execute('SELECT * FROM songs WHERE artistID = 2 ORDER BY RAND() LIMIT 5')
 	rowsReturned = cursor.fetchall()
 	print(rowsReturned)
-	return render_template('bach.html')
+	return render_template('bach.html' , user1 = rowsReturned[0][2] , user2 = rowsReturned[1][2] , user3 = rowsReturned[2][2] , user4 = rowsReturned[3][2], user5 = rowsReturned[4][2])
 
 @app.route('/mozart')
 def mozart():
@@ -79,7 +80,7 @@ def mozart():
 	cursor.execute('SELECT * FROM songs WHERE artistID = 3 ORDER BY RAND() LIMIT 5')
 	rowsReturned = cursor.fetchall()
 	print(rowsReturned)
-	return render_template('mozart.html')
+	return render_template('mozart.html' , user1 = rowsReturned[0][2] , user2 = rowsReturned[1][2] , user3 = rowsReturned[2][2] , user4 = rowsReturned[3][2], user5 = rowsReturned[4][2])
 
 @app.route('/chopin')
 def chopin():
@@ -87,7 +88,28 @@ def chopin():
 	cursor.execute('SELECT * FROM songs WHERE artistID = 4 ORDER BY RAND() LIMIT 5')
 	rowsReturned = cursor.fetchall()
 	print(rowsReturned)
-	return render_template('chopin.html')
+	track5 = "".join(("static/music/" , rowsReturned[4][1]))
+	print(track5)
+	return render_template('chopin.html' , user1 = rowsReturned[0][2] , user2 = rowsReturned[1][2] , user3 = rowsReturned[2][2] , user4 = rowsReturned[3][2]
+		 , user5 = rowsReturned[4][2] , track5 = track5)
+
+@app.route('/happy')
+def happy():
+	cursor = db_connection.cursor()
+	cursor.execute('SELECT * FROM songs WHERE artistID = 5 ORDER BY RAND() LIMIT 5')
+	rowsReturned = cursor.fetchall()
+	print(rowsReturned)
+	return render_template('happy.html' , user1 = rowsReturned[0][2] , user2 = rowsReturned[1][2] , user3 = rowsReturned[2][2] , user4 = rowsReturned[3][2]
+		 , user5 = rowsReturned[4][2])
+
+@app.route('/sad')
+def sad():
+	cursor = db_connection.cursor()
+	cursor.execute('SELECT * FROM songs WHERE artistID = 6 ORDER BY RAND() LIMIT 5')
+	rowsReturned = cursor.fetchall()
+	print(rowsReturned)
+	return render_template('sad.html' , user1 = rowsReturned[0][2] , user2 = rowsReturned[1][2] , user3 = rowsReturned[2][2] , user4 = rowsReturned[3][2]
+		 , user5 = rowsReturned[4][2])
 
 @app.route('/loading_beethoven')
 def loading():
@@ -152,6 +174,37 @@ def loading_chopin():
     cursor.execute("INSERT INTO songs (songName,ownerName,artistID)VALUES(%s,%s,%s)",(songName, nameReturned[0], 4))
     db_connection.commit()
     return render_template('loading_chopin.html')
+
+
+@app.route('/loading_happy')
+def loading_happy():
+    songName = generation.generate(4)
+    emailReturned = session['email']
+    print("Current ursername = ")
+    print(emailReturned[0])
+    email = emailReturned[0]
+    cursor = db_connection.cursor()
+    cursor.execute("SELECT name FROM users WHERE email ='"+email+"'")
+    nameReturned = cursor.fetchone()
+    print(nameReturned[0])
+    cursor.execute("INSERT INTO songs (songName,ownerName,artistID)VALUES(%s,%s,%s)",(songName, nameReturned[0], 5))
+    db_connection.commit()
+    return render_template('loading_happy.html')
+
+@app.route('/loading_sad')
+def loading_sad():
+    songName = generation.generate(5)
+    emailReturned = session['email']
+    print("Current ursername = ")
+    print(emailReturned[0])
+    email = emailReturned[0]
+    cursor = db_connection.cursor()
+    cursor.execute("SELECT name FROM users WHERE email ='"+email+"'")
+    nameReturned = cursor.fetchone()
+    print(nameReturned[0])
+    cursor.execute("INSERT INTO songs (songName,ownerName,artistID)VALUES(%s,%s,%s)",(songName, nameReturned[0], 6))
+    db_connection.commit()
+    return render_template('loading_sad.html')
 
 @app.route('/logout')
 def logout():
