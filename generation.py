@@ -26,10 +26,7 @@ from datetime import datetime
 def generate(artist_number):
     """ Generate a piano midi file """
     #load the notes used to train the model
-    if(os.path.isfile('static/music/test_output2.mid')):
-        os.remove('static/music/test_output2.mid')
-
-    os.rename(r"static/music/test_output.mid" , r"static/music/test_output2.mid")
+    
 
     if(artist_number == 0):
         notes_path = 'data/notes_beethoven'
@@ -225,7 +222,7 @@ def create_midi(prediction_output , artist_number):
 
     
     midi_stream.write('midi', fp='static/music/test_output.mid')
-    midi_stream.write('midi', fp='forward/static/music/'+file_name)
+    midi_stream.write('midi', fp='static/music/'+file_name)
     K.clear_session()
 
     return file_name
